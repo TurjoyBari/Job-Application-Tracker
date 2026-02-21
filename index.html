@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+
+    <!-- tailwind + daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- icon -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8FAFC]">
+    <header class="w-[80%] mx-auto pt-[60px] space-y-[30px]">
+        <h1 class="text-[#002C5C] text-[32px] font-bold ">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-[16px] ">
+
+            <div class="p-[20px] bg-white rounded-[8px]">
+                <p class="text-[#323B49] text-[14px] ">Total</p>
+                <p id="totalCount" class="text-[#002C5C] font-bold text-[24px]">0</p>
+            </div>
+            <div class="p-[20px] bg-white rounded-[8px]">
+                <p class="text-[#323B49] text-[14px] ">Interview</p>
+                <p id="interviewCount" class="text-[#10B981] font-bold text-[24px]">0</p>
+            </div>
+            <div class="p-[20px] bg-white rounded-[8px]">
+                <p class="text-[#323B49] text-[14px] ">Rejected</p>
+                <p id="rejectedCount" class="text-[#EF4444] font-bold text-[24px]">0</p>
+            </div>
+
+        </div>
+        <hr class="text-[#E6E7E9]">
+    </header>
+
+    <main>
+
+        <section class="w-[80%] mx-auto flex justify-between pt-[30px] pb-[24px]">
+            <h3 class="font-semibold text-[20px] text-[#002C5C]">Available Jobs</h3>
+            <p class="text-[#64748B]"><span>8 </span>jobs</p>
+
+        </section>
+
+        <section class="w-[80%] mx-auto space-y-[16px]">
+            <div class="flex gap-[8px]">
+                <button onclick="toggleStyle('all-toggle-btn')" id="all-toggle-btn" class="bg-[#3B82F6] px-[32px] py-[10px] rounded-[4px] text-white font-semibold text-[12px]">All</button>
+                <button onclick="toggleStyle('interview-toggle-btn')" id="interview-toggle-btn" class="bg-[#FFFFFF] px-[32px] py-[10px] rounded-[4px] text-[#64748B] font-semibold text-[12px]">Interview</button>
+                <button onclick="toggleStyle('reject-toggle-btn')" id="reject-toggle-btn" class="bg-[#FFFFFF] px-[32px] py-[10px] rounded-[4px] text-[#64748B] font-semibold text-[12px]">Rejected</button>
+            </div>
+
+            <div id="allcards" class="space-y-[16px]">
+
+                <div class="bg-white rounded-[8px] p-[24px] space-y-[16px] flex justify-between">
+                    <div class="space-y-[16px]">
+                        <div class="">
+                            <p class="companyName font-semibold text-[#002C5C] text-[18px]">Mobile First Corp</p>
+                            <p class="position text-[#64748B] text-[16px]">React Native Developer</p>
+                        </div>
+                        <p class="salary text-[#64748B] text-[14px]">Remote • Full-time • $130,000 - $175,000</p>
+                        <div>
+                            <button
+                                class="status-update px-[12px] py-[8px] bg-[#EEF4FF] text-[#002C5C] font-[500] rounded-[4px] mb-[16px]">Not
+                                Applied</button>
+                            <p class="description  text-[#323B]">Build cross-platform mobile applications using React
+                                Native. Work on
+                                products used by millions of users worldwide.</p>
+                        </div>
+                        <div>
+                            <button
+                                class="interview-btn px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</button>
+                            <button
+                                class="reject-btn px-[12px] py-[8px] border border-[#EF4444] text-[#EF4444] font-semibold ">REJECTED</button>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+
+
+                <div class="bg-white rounded-[8px] p-[24px] space-y-[16px] flex justify-between">
+                    <div class="space-y-[16px]">
+                        <div class="">
+                            <p class="companyName font-semibold text-[#002C5C] text-[18px]">WebFlow Agency</p>
+                            <p class="position text-[#64748B] text-[16px]">Web Designer & Developer</p>
+                        </div>
+                        <p class="salary text-[#64748B] text-[14px]">Los Angeles, CA • Part-time • $80,000 - $120,000
+                        </p>
+                        <div>
+                            <button
+                                class="status-update px-[12px] py-[8px] bg-[#EEF4FF] text-[#002C5C] font-[500] rounded-[4px] mb-[16px]">Not
+                                Applied</button>
+                            <p class="description text-[#323B]">Create stunning web experiences for high-profile
+                                clients. Must have portfolio and experience with modern web design trends.</p>
+                        </div>
+                        <div>
+                            <button
+                                class="interview-btn px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</button>
+                            <button
+                                class="reject-btn px-[12px] py-[8px] border border-[#EF4444] text-[#EF4444] font-semibold ">REJECTED</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="bg-white rounded-[8px] p-[24px] space-y-[16px] flex justify-between">
+                    <div class="space-y-[16px]">
+                        <div class="">
+                            <p class="companyName font-semibold text-[#002C5C] text-[18px]">DataViz Solutions</p>
+                            <p class="position text-[#64748B] text-[16px]">Data Visualization Specialist</p>
+                        </div>
+                        <p class="salary text-[#64748B] text-[14px]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        <div>
+                            <button
+                                class="status-update px-[12px] py-[8px] bg-[#EEF4FF] text-[#002C5C] font-[500] rounded-[4px] mb-[16px]">Not
+                                Applied</button>
+                            <p class="description text-[#323B]">Transform complex data into compelling visualizations.
+                                Required skills: D3.js, React, and strong analytical thinking.</p>
+                        </div>
+                        <div>
+                            <button
+                                class="interview-btn px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</button>
+                            <button
+                                class="reject-btn px-[12px] py-[8px] border border-[#EF4444] text-[#EF4444] font-semibold ">REJECTED</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="./sript.js"></script>
+</body>
+
+</html>
