@@ -209,6 +209,19 @@ mainContainer.addEventListener("click", function(event){
 
   }
 
+
+
+
+  else if(event.target.closest('.delete-btn')){
+
+    const card = event.target.closest(".bg-white")
+
+    card.remove()
+
+    calculateCount()
+
+}
+
 })
 
 
@@ -306,3 +319,9 @@ function rejectRender(){
         console.log(div);
     }
 }
+
+
+
+
+
+
