@@ -75,6 +75,7 @@ function toggleStyle(id){
         filterSection.classList.remove("hidden")
         rejectRender()
     }
+    
 
 
 }
@@ -212,14 +213,38 @@ mainContainer.addEventListener("click", function(event){
 
 
 
+
+
   else if(event.target.closest('.delete-btn')){
 
     const card = event.target.closest(".bg-white")
+    const companyName = card.querySelector(".companyName").innerText.trim()
+
 
     card.remove()
 
+
+    interviewList = interviewList.filter(item => item.companyName.trim() !== companyName)
+
+    rejectedList = rejectedList.filter(item => item.companyName.trim() !== companyName)
+
+
     calculateCount()
 
+
+    if(currentStatus === "interview-toggle-btn"){
+        interviewRender()
+    }
+
+    if(currentStatus === "reject-toggle-btn"){
+        rejectRender()
+    }
+
+    if(allcards.children.length === 0){
+        noAvailable.classList.remove("hidden")
+        return
+    }
+    
 }
 
 })
@@ -319,6 +344,7 @@ function rejectRender(){
         console.log(div);
     }
 }
+
 
 
 
