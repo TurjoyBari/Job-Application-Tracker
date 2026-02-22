@@ -51,22 +51,40 @@
         <hr class="text-[#E6E7E9]">
     </header>
 
-    <main>
+    <main class="w-[80%] mx-auto space-y-[16px]">
 
-        <section class="w-[80%] mx-auto flex justify-between pt-[30px] pb-[24px]">
+        <section class="flex justify-between pt-[30px] pb-[24px]">
             <h3 class="font-semibold text-[20px] text-[#002C5C]">Available Jobs</h3>
             <p class="text-[#64748B]"><span>8 </span>jobs</p>
 
         </section>
 
-        <section class="w-[80%] mx-auto space-y-[16px]">
+        <!-- <section class="w-[80%] mx-auto space-y-[16px]"> -->
             <div class="flex gap-[8px]">
                 <button onclick="toggleStyle('all-toggle-btn')" id="all-toggle-btn" class="bg-[#3B82F6] px-[32px] py-[10px] rounded-[4px] text-white font-semibold text-[12px]">All</button>
                 <button onclick="toggleStyle('interview-toggle-btn')" id="interview-toggle-btn" class="bg-[#FFFFFF] px-[32px] py-[10px] rounded-[4px] text-[#64748B] font-semibold text-[12px]">Interview</button>
                 <button onclick="toggleStyle('reject-toggle-btn')" id="reject-toggle-btn" class="bg-[#FFFFFF] px-[32px] py-[10px] rounded-[4px] text-[#64748B] font-semibold text-[12px]">Rejected</button>
             </div>
 
+
+            <section id="filterSection" class="hidden">
+
+            </section>
+
+            <section id="noAvailable" class="hidden bg-white rounded-[8px] ">
+                <div class="text-center flex flex-col items-center justify-center gap-[20px] px-[40px] py-[60px]">
+                    <img class="" src="./jobs.png" alt="">
+                    <div>
+                        <h3 class="font-semibold text-[24px] text-[#002C5C]">No jobs available</h3>
+                        <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+                    </div>
+                </div>
+            </section>
+
             <div id="allcards" class="space-y-[16px]">
+
+
+                
 
                 <div class="bg-white rounded-[8px] p-[24px] space-y-[16px] flex justify-between">
                     <div class="space-y-[16px]">
@@ -158,7 +176,7 @@
 
             </div>
 
-        </section>
+        <!-- </section> -->
 
 
     </main>
