@@ -94,13 +94,27 @@ mainContainer.addEventListener("click", function(event){
     const salary = parentNode.querySelector(".salary").innerText
     const statusUpdate = parentNode.querySelector(".status-update").innerText
     const description = parentNode.querySelector(".description").innerText
+    
+    
 
-//  parentNode.querySelector(".status-update").innerHTML = `
-//         <button class="interview-btn px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</button>
-//     `
+
+
+
+    const card = event.target.closest(".bg-white")
+
+    card.classList.remove("border-[#EF4444]")
+
+    card.classList.add("border-l-3", "border-[#10B981]")
+
+
+
+
     const update = parentNode.querySelector(".status-update").innerHTML = `
-        <p class="px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</p>
+        <p class="px-[12px] py-[8px] bg-[#10b981] text-[#ffffff]  font-semibold rounded-md">INTERVIEW</p>
     `
+
+    
+
 
     const cardInfo = {
         companyName,
@@ -123,7 +137,7 @@ mainContainer.addEventListener("click", function(event){
 
     rejectedList = rejectedList.filter(item=> item.companyName.trim() != cardInfo.companyName.trim())
 
-    // rejectedList = rejectedList.filter(item => item.companyName != cardInfo.companyName);
+
     
     
     calculateCount()
@@ -135,8 +149,6 @@ mainContainer.addEventListener("click", function(event){
 
     
     
-    
-    // interviewRender()
 
   }
 
@@ -150,12 +162,21 @@ mainContainer.addEventListener("click", function(event){
     const statusUpdate = parentNode.querySelector(".status-update").innerText
     const description = parentNode.querySelector(".description").innerText
 
-//  parentNode.querySelector(".status-update").innerHTML = `
-//         <button class="interview-btn px-[12px] py-[8px] border border-[#10B981] text-[#10B981] font-semibold mr-[8px] ">INTERVIEW</button>
-//     `
+
+
     const update = parentNode.querySelector(".status-update").innerHTML = `
-        <p class="px-[12px] py-[8px] border border-[#EF4444] text-[#EF4444] font-semibold mr-[8px] ">REJECTED</p>
+        <p class="px-[12px] py-[8px] bg-[#EF4444] text-[#ffffff] font-semibold rounded-md ">REJECTED</p>
     `
+
+
+
+    const card = event.target.closest(".bg-white")
+
+    card.classList.remove("border-[#10B981]")
+    card.classList.add("border-l-3", "border-[#EF4444]")
+
+
+
 
     const cardInfo = {
         companyName,
@@ -200,6 +221,7 @@ function interviewRender(){
         return
     }
     noAvailable.classList.add("hidden")
+
 
     for(let interview of interviewList){
 
