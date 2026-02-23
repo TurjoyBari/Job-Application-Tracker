@@ -282,6 +282,8 @@ function rejectRender() {
         
         `;
 
+        
+
     filterSection.appendChild(div);
 
     console.log(div);
